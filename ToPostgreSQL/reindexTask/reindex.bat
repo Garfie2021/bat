@@ -3,7 +3,7 @@
 rem --------------------------------------------------
 rem DB接続パラメータ
 rem --------------------------------------------------
-set PGPATH=D:\Tasks\reindexTask
+set PGPATH=C:\Tasks\reindexTask
 set HOSTNAME=（ホスト名）
 set DBNAME=（データベース名）
 set USERNAME=（データベース ログインユーザ名）
