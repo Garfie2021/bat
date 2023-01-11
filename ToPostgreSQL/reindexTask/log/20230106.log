@@ -1,9 +1,9 @@
-ï»¿2023-01-06 17:58:00,070 start 
-2023-01-06 17:58:00,070 : ã‚¹ã‚­ãƒƒãƒ—[             indexrelname              ] 
-2023-01-06 17:58:00,070 : ã‚¹ã‚­ãƒƒãƒ—[---------------------------------------] 
-2023-01-06 17:58:00,070 : psql -h ï¼ˆãƒ›ã‚¹ãƒˆåï¼‰ -p 5432 -U ï¼ˆãƒ‡ãƒ¼ã‚¿ãƒ™ãƒ¼ã‚¹ ãƒ­ã‚°ã‚¤ãƒ³ãƒ¦ãƒ¼ã‚¶åï¼‰ -c "REINDEX INDEX  t_testTableA_pkey;" -d ï¼ˆãƒ‡ãƒ¼ã‚¿ãƒ™ãƒ¼ã‚¹åï¼‰ 
+2023-01-06 17:58:00,070 start 
+2023-01-06 17:58:00,070 : ƒXƒLƒbƒv[             indexrelname              ] 
+2023-01-06 17:58:00,070 : ƒXƒLƒbƒv[---------------------------------------] 
+2023-01-06 17:58:00,070 : psql -h iƒzƒXƒg–¼j -p 5432 -U iƒf[ƒ^ƒx[ƒX ƒƒOƒCƒ“ƒ†[ƒU–¼j -c "REINDEX INDEX  t_testTableA_pkey;" -d iƒf[ƒ^ƒx[ƒX–¼j 
 REINDEX
-2023-01-06 17:58:00,070 : psql -h ï¼ˆãƒ›ã‚¹ãƒˆåï¼‰ -p 5432 -U ï¼ˆãƒ‡ãƒ¼ã‚¿ãƒ™ãƒ¼ã‚¹ ãƒ­ã‚°ã‚¤ãƒ³ãƒ¦ãƒ¼ã‚¶åï¼‰ -c "REINDEX INDEX  t_testTableB_pkey;" -d ï¼ˆãƒ‡ãƒ¼ã‚¿ãƒ™ãƒ¼ã‚¹åï¼‰ 
+2023-01-06 17:58:00,070 : psql -h iƒzƒXƒg–¼j -p 5432 -U iƒf[ƒ^ƒx[ƒX ƒƒOƒCƒ“ƒ†[ƒU–¼j -c "REINDEX INDEX  t_testTableB_pkey;" -d iƒf[ƒ^ƒx[ƒX–¼j 
 REINDEX
-2023-01-06 17:58:00,070 : ã‚¹ã‚­ãƒƒãƒ—[(2 è¡Œ)] 
+2023-01-06 17:58:00,070 : ƒXƒLƒbƒv[(2 s)] 
 2023-01-06 17:58:01,610 end 

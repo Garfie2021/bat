@@ -1,67 +1,67 @@
-ï»¿rem @echo off
+rem @echo off
 
 rem --------------------------------------------------
-rem DBæŽ¥ç¶šãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿
+rem DBÚ‘±ƒpƒ‰ƒ[ƒ^
 rem --------------------------------------------------
 set PGPATH=C:\Tasks\reindexTask
-set HOSTNAME=ï¼ˆãƒ›ã‚¹ãƒˆåï¼‰
-set DBNAME=ï¼ˆãƒ‡ãƒ¼ã‚¿ãƒ™ãƒ¼ã‚¹åï¼‰
-set USERNAME=ï¼ˆãƒ‡ãƒ¼ã‚¿ãƒ™ãƒ¼ã‚¹ ãƒ­ã‚°ã‚¤ãƒ³ãƒ¦ãƒ¼ã‚¶åï¼‰
-set PGPASSWORD=ï¼ˆãƒ‡ãƒ¼ã‚¿ãƒ™ãƒ¼ã‚¹ ãƒ­ã‚°ã‚¤ãƒ³ãƒ‘ã‚¹ãƒ¯ãƒ¼ãƒ‰ï¼‰
+set HOSTNAME=iƒzƒXƒg–¼j
+set DBNAME=iƒf[ƒ^ƒx[ƒX–¼j
+set USERNAME=iƒf[ƒ^ƒx[ƒX ƒƒOƒCƒ“ƒ†[ƒU–¼j
+set PGPASSWORD=iƒf[ƒ^ƒx[ƒX ƒƒOƒCƒ“ƒpƒXƒ[ƒhj
 
 rem --------------------------------------------------
-rem å®šæ•°
+rem ’è”
 rem --------------------------------------------------
-rem ä»Šæ—¥ã®æ—¥ä»˜
+rem ¡“ú‚Ì“ú•t
 set YYYYMMDD=%DATE:/=%
 
-rem å®Ÿè¡ŒSQLãƒ•ã‚¡ã‚¤ãƒ«å®šç¾©
+rem ŽÀsSQLƒtƒ@ƒCƒ‹’è‹`
 set SELECT_INDEX_FILE=sql\select_index.sql
 
-rem SQLå®Ÿè¡Œçµæžœãƒ•ã‚¡ã‚¤ãƒ«å®šç¾©
+rem SQLŽÀsŒ‹‰Êƒtƒ@ƒCƒ‹’è‹`
 set SELECT_INDEX_OUTPUT_FILE=dat\select_index_output.txt
 
 rem --------------------------------------------------
-rem å®Ÿè¡Œ
+rem ŽÀs
 rem --------------------------------------------------
-rem å‡¦ç†é–‹å§‹
+rem ˆ—ŠJŽn
 echo %date:/=-% %time:.=,%0 start >log\%YYYYMMDD%.log
 
 cd %PGPATH%
 
 if not exist "dat" (
-  rem datãƒ•ã‚©ãƒ«ãƒ€ãŒç„¡ã‘ã‚Œã°ä½œæˆ
+  rem datƒtƒHƒ‹ƒ_‚ª–³‚¯‚ê‚Îì¬
   mkdir dat\
 )
 
 if not exist "log" (
-  rem logãƒ•ã‚©ãƒ«ãƒ€ãŒç„¡ã‘ã‚Œã°ä½œæˆ
+  rem logƒtƒHƒ‹ƒ_‚ª–³‚¯‚ê‚Îì¬
   mkdir log\
 )
 
-echo %date:/=-% %time:.=,%0 REINDEXå¯¾è±¡æŠ½å‡º start >>log\%YYYYMMDD%.log
+echo %date:/=-% %time:.=,%0 REINDEX‘ÎÛ’Šo start >>log\%YYYYMMDD%.log
 psql -h %HOSTNAME% -p 5432 -U %USERNAME% -f %SELECT_INDEX_FILE% -d %DBNAME% -o %SELECT_INDEX_OUTPUT_FILE% >> log\%YYYYMMDD%.log
-echo %date:/=-% %time:.=,%0 REINDEXå¯¾è±¡æŠ½å‡º end >>log\%YYYYMMDD%.log
+echo %date:/=-% %time:.=,%0 REINDEX‘ÎÛ’Šo end >>log\%YYYYMMDD%.log
 
-rem REINDEXå¯¾è±¡æŠ½å‡ºçµæžœã‚’1è¡Œãšã¤èª­ã¿è¾¼ã‚€ã€‚Indexåä»¥å¤–ã¯ã‚¹ã‚­ãƒƒãƒ—ã™ã‚‹ã€‚
+rem REINDEX‘ÎÛ’ŠoŒ‹‰Ê‚ð1s‚¸‚Â“Ç‚Ýž‚ÞBIndex–¼ˆÈŠO‚ÍƒXƒLƒbƒv‚·‚éB
 for /f "delims=" %%a in (%SELECT_INDEX_OUTPUT_FILE%) do (
 
-  echo %%a | find "è¡Œ" 1>nul
+  echo %%a | find "s" 1>nul
   if not ERRORLEVEL 1 (
-    echo %date:/=-% %time:.=,%0 : ã‚¹ã‚­ãƒƒãƒ—[%%a] >> log\%YYYYMMDD%.log
+    echo %date:/=-% %time:.=,%0 : ƒXƒLƒbƒv[%%a] >> log\%YYYYMMDD%.log
   ) else (
 
     echo %%a | find "--" 1>nul
     if not ERRORLEVEL 1 (
-      echo %date:/=-% %time:.=,%0 : ã‚¹ã‚­ãƒƒãƒ—[%%a] >> log\%YYYYMMDD%.log
+      echo %date:/=-% %time:.=,%0 : ƒXƒLƒbƒv[%%a] >> log\%YYYYMMDD%.log
     ) else (
 
       echo %%a | find "indexrelname" 1>nul
       if not ERRORLEVEL 1 (
-        echo %date:/=-% %time:.=,%0 : ã‚¹ã‚­ãƒƒãƒ—[%%a] >> log\%YYYYMMDD%.log
+        echo %date:/=-% %time:.=,%0 : ƒXƒLƒbƒv[%%a] >> log\%YYYYMMDD%.log
       ) else (
 
-        rem Indexåãªã®ã§ REINDEXã‚’è¡Œã†ã€‚
+        rem Index–¼‚È‚Ì‚Å REINDEX‚ðs‚¤B
         echo %date:/=-% %time:.=,%0 : psql -h %HOSTNAME% -p 5432 -U %USERNAME% -c "REINDEX INDEX %%a;" -d %DBNAME% >> log\%YYYYMMDD%.log
         psql -h %HOSTNAME% -p 5432 -U %USERNAME% -c "REINDEX INDEX %%a;" -d %DBNAME%  >> log\%YYYYMMDD%.log
       )
@@ -69,5 +69,5 @@ for /f "delims=" %%a in (%SELECT_INDEX_OUTPUT_FILE%) do (
   )
 )
 
-rem å‡¦ç†çµ‚äº†
+rem ˆ—I—¹
 echo %date:/=-% %time:.=,%0 end >>log\%YYYYMMDD%.log

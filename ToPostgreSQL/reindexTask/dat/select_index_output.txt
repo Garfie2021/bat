@@ -1,6 +1,6 @@
-﻿             indexrelname              
+             indexrelname              
 ---------------------------------------
  t_testTableA_pkey
  t_testTableB_pkey
-(2 行)
+(2 �s)
 
