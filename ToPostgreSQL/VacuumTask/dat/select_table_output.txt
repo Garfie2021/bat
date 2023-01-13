@@ -1,0 +1,6 @@
+              relname               
+------------------------------------
+ t_testTableA
+ t_testTableB
+(2 çs)
+
